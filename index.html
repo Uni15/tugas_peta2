@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DESAKU</title>
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
+    <script src="assets/leaflet/leaflet.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="assets/montong_gamang.js"></script>
+    <script>
+      const map = L.map("map").setView([-8.633706289826005, 116.37219257030804, 15.63], 15);
+
+      const tiles = L.tileLayer(
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }
+      ).addTo(map);
+      L.geoJSON(gis).addTo(map);
+      //menampilkan desa atau lurah
+      var montong_gamang = L.marker([-8.633716897085113, 15]).addTo(map);
+      function onMapClick(e) {
+        alert("you clicked the maps at" + e.latling);
+      }
+      map.on("click,onMapClick");
+      //menampilkan mts
+      var montong_gamang = L.marker([
+      -8.634560344891996, 116.37235733695498
+      ]).addTo(map);
+      function onMapClick(e) {
+        alert("you clicked the maps at" + e.latling);
+      }
+      map.on("click,onMapClick");
+      //menampilkan sekolah dasar
+      var montong_gamang = L.marker([
+      -8.631617254662514, 116.38222464587678
+      ]).addTo(map);
+
+      map.on("click,onMapClick");
+        //menampilkan masjid
+        var montong_gamang = L.marker([
+        -8.633491559684227, 116.36883566324508
+      ]).addTo(map);
+
+      map.on("click,onMapClick");
+    </script>
+  </body>
+</html>
